@@ -85,3 +85,9 @@ jobs:
         export ANDROID_NDK=$ANDROID_HOME/ndk/16.1.4479499/
         export ANDROID_SDK=$ANDROID_HOME/
         ./gradlew :fijkplayer-full:assembleRelease
+        
+    - name: Upload apk
+      uses: actions/upload-artifact@v2
+      with:
+        name: fijkplayer-full-release.aar
+        path: android/ijkplayer/fijkplayer-full/fijkplayer-full-release.aar
