@@ -84,7 +84,8 @@ jobs:
       run: |
         export ANDROID_NDK=$ANDROID_HOME/ndk/16.1.4479499/
         export ANDROID_SDK=$ANDROID_HOME/
-        ./gradlew :fijkplayer-full:assembleRelease
+        ./gradlew build -PIJK_CXX_STL=c++_shared
+        ./gradlew :fijkplayer-full:assembleRelease -PIJK_CXX_STL=c++_shared
         
     - name: Upload apk
       uses: actions/upload-artifact@v2
