@@ -26,7 +26,7 @@ jobs:
 
     - name: Setup ndk
       run: |
-        yes 2>/dev/null | sudo $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;16.1.4479499" "cmake;3.10.2.4988404"
+        yes 2>/dev/null | sudo $ANDROID_HOME/tools/bin/sdkmanager --install "ndk;16.1.4479499" "cmake;3.10.2.4988404" "platform-tools" "build-tools;28.0.3" "platforms;android-28"
 
 
     - name: Cache android extra
@@ -83,9 +83,11 @@ jobs:
       working-directory: android/ijkplayer
       run: |
         export ANDROID_NDK=$ANDROID_HOME/ndk/16.1.4479499/
+        export ANDROID_SDK=$ANDROID_HOME
+        ./gradlew :fijkplayer-full:assembleRelease
         ./gradlew build -PIJK_CXX_STL=c++_shared
         ./gradlew assembleRelease -PIJK_CXX_STL=c++_shared
-
+       
     - name: Upload apk
       uses: actions/upload-artifact@v2
       with:
