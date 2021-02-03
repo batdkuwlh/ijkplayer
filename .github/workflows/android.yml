@@ -83,6 +83,7 @@ jobs:
       working-directory: android/ijkplayer
       run: |
         export ANDROID_NDK=$ANDROID_HOME/ndk/16.1.4479499/
+        ./gradlew :fijkplayer-full:assembleRelease
         ./gradlew build -PIJK_CXX_STL=c++_shared
         ./gradlew assembleRelease -PIJK_CXX_STL=c++_shared
 
