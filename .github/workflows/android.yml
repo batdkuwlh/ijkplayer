@@ -86,11 +86,3 @@ jobs:
         export ANDROID_SDK=$ANDROID_HOME/
         export ANDROID_SDK=$ANDROID_HOME/sdk/
         ./gradlew :fijkplayer-full:assembleRelease
-        ./gradlew build -PIJK_CXX_STL=c++_shared
-        ./gradlew assembleRelease -PIJK_CXX_STL=c++_shared
-
-    - name: Upload apk
-      uses: actions/upload-artifact@v2
-      with:
-        name: ijkdemo-release
-        path: android/ijkplayer/ijkplayer-example/build/outputs/apk/release/ijkplayer-example-release.apk
