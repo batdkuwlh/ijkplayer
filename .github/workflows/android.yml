@@ -84,5 +84,4 @@ jobs:
       run: |
         export ANDROID_NDK=$ANDROID_HOME/ndk/16.1.4479499/
         export ANDROID_SDK=$ANDROID_HOME/
-        export ANDROID_SDK=$ANDROID_HOME/sdk/
         ./gradlew :fijkplayer-full:assembleRelease
